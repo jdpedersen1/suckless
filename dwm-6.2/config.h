@@ -1,3 +1,4 @@
+
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 10;       /* gap pixel between windows */
