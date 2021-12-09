@@ -1,4 +1,3 @@
-/*comment*/
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 10;       /* gap pixel between windows */
@@ -39,14 +38,17 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
-const char *spcmd3[] = {"mailspring", "-g", "144x41",  NULL };
+const char *spcmd3[] = {"mailspring", "-g", "41x144",  NULL };
 const char *spcmd4[] = {"st", "-n", "spmenu", "-g", "120x34", "-e", "./scripts/testmenu.sh", NULL };
+const char *spcmd5[] = {"kitty", "-T", "spkeys", "--hold", "-e", "./scripts/hotkeys.sh", NULL };
+
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"spranger",    spcmd2},
 	{"mailspring",  spcmd3},
     {"sptestmenu.sh", spcmd4},
+    {"sphotkeys.sh", spcmd5},
 };
 
 /* tagging */
@@ -64,6 +66,7 @@ static const Rule rules[] = {
 	{ NULL,		  "spfm",		NULL,		SPTAG(1),		1,			 -1 },
 	{ NULL,		  "mailspring",	NULL,		SPTAG(2),		1,			 -1 },
     { NULL,       "spmenu",     NULL,       SPTAG(3),       1,           -1 },
+    { NULL,       "spkeys",     NULL,       SPTAG(4),       1,           -1 },
 };
 
 /* layout(s) */
@@ -139,6 +142,7 @@ static Key keys[] = {
 	{ MODKEY,            			XK_r,	   togglescratch,  {.ui = 1 } },
 	{ MODKEY,            			XK_e,	   togglescratch,  {.ui = 2 } },
     { MODKEY,                       XK_c,      togglescratch,  {.ui = 3 } },
+    { MODKEY|ControlMask,           XK_h,      togglescratch,  {.ui = 4 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
